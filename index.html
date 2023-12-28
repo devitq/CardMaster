@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CardMaster</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/toggler.css" />
+        <link rel="stylesheet" href="/css/fonts.css" />
+        <link rel="stylesheet" href="fonts//FontAwesome/css/all.min.css" />
+        <link rel="stylesheet" href="fonts//FontAwesome/css/solid.min.css" />
+    </head>
+    <body>
+        <header>
+            <nav
+                class="navbar navbar-expand bg-body-tertiary rounded d-flex flex-wrap cardmaster__navbar"
+                aria-label="CardMasterNavbar"
+            >
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">
+                        <img
+                            src="/img/CardMasterBorder.png"
+                            alt="Logo"
+                            width="30"
+                            height="30"
+                            class="d-inline-block align-text-top"
+                        />
+                        CardMaster
+                    </a>
+                    <div
+                        class="collapse navbar-collapse justify-content-end flex-nowrap"
+                        id="CardMaster"
+                    >
+                        <button
+                            class="theme-toggle"
+                            id="theme-toggle"
+                            title="Toggles light & dark"
+                            aria-label="auto"
+                            aria-live="polite"
+                        >
+                            <svg
+                                class="sun-and-moon"
+                                aria-hidden="true"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                            >
+                                <mask class="moon" id="moon-mask">
+                                    <rect
+                                        x="0"
+                                        y="0"
+                                        width="100%"
+                                        height="100%"
+                                        fill="white"
+                                    />
+                                    <circle
+                                        cx="24"
+                                        cy="10"
+                                        r="6"
+                                        fill="black"
+                                    />
+                                </mask>
+                                <circle
+                                    class="sun"
+                                    cx="12"
+                                    cy="12"
+                                    r="6"
+                                    mask="url(#moon-mask)"
+                                    fill="currentColor"
+                                />
+                                <g class="sun-beams" stroke="currentColor">
+                                    <line x1="12" y1="1" x2="12" y2="3" />
+                                    <line x1="12" y1="21" x2="12" y2="23" />
+                                    <line
+                                        x1="4.22"
+                                        y1="4.22"
+                                        x2="5.64"
+                                        y2="5.64"
+                                    />
+                                    <line
+                                        x1="18.36"
+                                        y1="18.36"
+                                        x2="19.78"
+                                        y2="19.78"
+                                    />
+                                    <line x1="1" y1="12" x2="3" y2="12" />
+                                    <line x1="21" y1="12" x2="23" y2="12" />
+                                    <line
+                                        x1="4.22"
+                                        y1="19.78"
+                                        x2="5.64"
+                                        y2="18.36"
+                                    />
+                                    <line
+                                        x1="18.36"
+                                        y1="5.64"
+                                        x2="19.78"
+                                        y2="4.22"
+                                    />
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-md-12 d-flex">
+                    <h1 class="mb-0">Card master</h1>
+                    <button
+                        type="button"
+                        class="btn btn-primary ms-auto"
+                        data-bs-toggle="modal"
+                        data-bs-target="#createHeroModal"
+                    >
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div
+                class="row g-3 g-lg-4 g-md-3 row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-xl-3 mt-0"
+            >
+                <div class="col">
+                    <div
+                        class="card h-100 shadow-sm item_card is-revealing zoomable-card"
+                    >
+                        <div class="card-body">
+                            <h5 class="card-title">Hero 1</h5>
+                            <p class="card-text text-muted"
+                                >Hero 1 Description</p
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="modal fade"
+            id="createHeroModal"
+            tabindex="-1"
+            aria-labelledby="createHeroModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="createHeroModalLabel">
+                            Create hero
+                        </h1>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <form>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="InputName" class="form-label"
+                                    >Name</label
+                                >
+                                <input
+                                    class="form-control"
+                                    id="InputName"
+                                    aria-describedby="nameHelp"
+                                />
+                                <div id="nameHelp" class="form-text"
+                                    >Name of your hero</div
+                                >
+                            </div>
+                            <div class="mb-3">
+                                <label for="InputDescription" class="form-label"
+                                    >Description</label
+                                >
+                                <textarea
+                                    class="form-control"
+                                    name=""
+                                    id=""
+                                ></textarea>
+                                <div id="nameHelp" class="form-text">
+                                    Describe your hero in a few sentences
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary"
+                                >Create</button
+                            >
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="/js/themeToggler.js"></script>
+        <script src="/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
