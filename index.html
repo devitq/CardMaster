@@ -4,14 +4,117 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>CardMaster</title>
+
+        <!-- Icons -->
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/img/icons/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/img/icons/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/img/icons/favicon-16x16.png"
+        />
+        <link rel="shortcut icon" href="/img/icons/favicon.ico" />
         <link rel="stylesheet" href="/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="/css/style.css" />
-        <link rel="stylesheet" href="/css/toggler.css" />
-        <link rel="stylesheet" href="/css/fonts.css" />
-        <link rel="stylesheet" href="fonts//FontAwesome/css/all.min.css" />
-        <link rel="stylesheet" href="fonts//FontAwesome/css/solid.min.css" />
+
+        <!-- Styles -->
+        <link
+            rel="preload"
+            href="/css/toggler.css"
+            as="style"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript><link rel="stylesheet" href="/css/toggler.css" /></noscript>
+
+        <link
+            rel="preload"
+            href="/css/easings.min.css"
+            as="style"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript
+            ><link rel="stylesheet" href="/css/easings.min.css"
+        /></noscript>
+
+        <link
+            rel="preload"
+            href="/css/fonts.css"
+            as="style"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript><link rel="stylesheet" href="/css/fonts.css" /></noscript>
+
+        <link
+            rel="preload"
+            href="fonts/FontAwesome/css/all.min.css"
+            as="style"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript
+            ><link rel="stylesheet" href="fonts/FontAwesome/css/all.min.css"
+        /></noscript>
+
+        <link
+            rel="preload"
+            href="fonts/FontAwesome/css/solid.min.css"
+            as="style"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript
+            ><link rel="stylesheet" href="fonts/FontAwesome/css/solid.min.css"
+        /></noscript>
+
+        <link
+            rel="preload"
+            href="/css/style.css"
+            as="style"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript><link rel="stylesheet" href="/css/style.css" /></noscript>
+
+        <!-- Scrips -->
+        <script src="/js/themeToggler.js"></script>
     </head>
     <body>
+        <!-- Toasts section -->
+        <div class="toast-container position-fixed top-0 end-0 p-3">
+            <div
+                id="errorToast"
+                class="toast"
+                role="alert"
+                aria-live="assertive"
+                aria-atomic="true"
+            >
+                <div class="toast-header">
+                    <img
+                        src="/img/CardMasterBorder.png"
+                        class="rounded me-2"
+                        alt="Logo"
+                        width="20px"
+                        height="20px"
+                    />
+                    <strong class="me-auto">CardMaster</strong>
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="toast"
+                        aria-label="Close"
+                    ></button>
+                </div>
+                <div class="toast-body"> Fill in all the fields! </div>
+            </div>
+        </div>
+
+        <!-- Header section -->
         <header>
             <nav
                 class="navbar navbar-expand bg-body-tertiary rounded d-flex flex-wrap cardmaster__navbar"
@@ -24,6 +127,7 @@
                             alt="Logo"
                             width="30"
                             height="30"
+                            loading="lazy"
                             class="d-inline-block align-text-top"
                         />
                         CardMaster
@@ -106,10 +210,11 @@
             </nav>
         </header>
 
-        <div class="container mt-3">
+        <!-- Cards section -->
+        <div class="container mt-3 mb-5">
             <div class="row">
                 <div class="col-md-12 d-flex">
-                    <h1 class="mb-0">Card master</h1>
+                    <h1 class="mb-0">Heroes</h1>
                     <button
                         type="button"
                         class="btn btn-primary ms-auto"
@@ -122,19 +227,8 @@
             </div>
             <div
                 class="row g-3 g-lg-4 g-md-3 row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-xl-3 mt-0"
+                id="cards_container"
             >
-                <div class="col">
-                    <div
-                        class="card h-100 shadow-sm item_card is-revealing zoomable-card"
-                    >
-                        <div class="card-body">
-                            <h5 class="card-title">Hero 1</h5>
-                            <p class="card-text text-muted"
-                                >Hero 1 Description</p
-                            >
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -158,46 +252,64 @@
                             aria-label="Close"
                         ></button>
                     </div>
-                    <form>
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="InputName" class="form-label"
-                                    >Name</label
-                                >
-                                <input
-                                    class="form-control"
-                                    id="InputName"
-                                    aria-describedby="nameHelp"
-                                />
-                                <div id="nameHelp" class="form-text"
-                                    >Name of your hero</div
-                                >
-                            </div>
-                            <div class="mb-3">
-                                <label for="InputDescription" class="form-label"
-                                    >Description</label
-                                >
-                                <textarea
-                                    class="form-control"
-                                    name=""
-                                    id=""
-                                ></textarea>
-                                <div id="nameHelp" class="form-text">
-                                    Describe your hero in a few sentences
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary"
-                                >Create</button
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="nameInput" class="form-label"
+                                >Name</label
+                            >
+                            <input
+                                class="form-control"
+                                id="nameInput"
+                                name="name"
+                                required
+                            />
+                            <div id="nameInputHelp" class="form-text"
+                                >Name of your hero</div
                             >
                         </div>
-                    </form>
+                        <div class="mb-3">
+                            <label for="classInput" class="form-label"
+                                >Class</label
+                            >
+                            <input
+                                class="form-control"
+                                id="classInput"
+                                name="class"
+                                required
+                            />
+                            <div id="classInputHelp" class="form-text"
+                                >Class of your hero</div
+                            >
+                        </div>
+                        <div class="mb-3">
+                            <label for="descriptionInput" class="form-label"
+                                >Description</label
+                            >
+                            <textarea
+                                class="form-control"
+                                name="description"
+                                id="descriptionInput"
+                                required
+                            ></textarea>
+                            <div id="descriptionInputHelp" class="form-text">
+                                Describe your hero in a few sentences
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            id="sumbitButton"
+                            type="button"
+                            class="btn btn-primary"
+                            >Create</button
+                        >
+                    </div>
                 </div>
             </div>
         </div>
 
-        <script src="/js/themeToggler.js"></script>
-        <script src="/js/bootstrap.bundle.min.js"></script>
+        <!-- Scripts -->
+        <script src="/js/heroes.js"></script>
+        <script defer src="/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
